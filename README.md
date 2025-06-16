@@ -18,20 +18,6 @@
 📚 9+ repositories created
 👥 0 followers
 ```
-
-<img src="https://img.shields.io/badge/GitHub%20Since-January 19, 2017-blue?style=for-the-badge&logo=github" alt="GitHub Since" />
-
-</div>
-
-## 🛠️ Tech Stack
-
-<div align="center">
-
-### 💻 Languages
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-
 </div>
 
 ## 📊 GitHub Analytics
@@ -73,16 +59,6 @@
 
 </div>
 
-## 🌟 Featured Projects
-
-<div align="center">
-
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=nlyh&repo=[RepoName1]&theme=tokyonight&hide_border=true)](https://github.com/nlyh/[RepoName1])
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=nlyh&repo=[RepoName2]&theme=tokyonight&hide_border=true)](https://github.com/nlyh/[RepoName2])
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=nlyh&repo=[RepoName3]&theme=tokyonight&hide_border=true)](https://github.com/nlyh/[RepoName3])
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=nlyh&repo=[RepoName4]&theme=tokyonight&hide_border=true)](https://github.com/nlyh/[RepoName4])
-
-</div>
 
 ## 🐍 Contribution Snake
 
