@@ -76,18 +76,12 @@ jobs:
                   projectCards += `[![${repo.name}](https://github-readme-stats.vercel.app/api/pin/?username=${context.repo.owner}&repo=${repo.name}&theme=tokyonight&hide_border=true)](https://github.com/${context.repo.owner}/${repo.name})\n`;
                 });
                 
-                // 替换项目占位符
-                const projectSection = readme.match(/## 🌟 Featured Projects[\s\S]*?(?=##|$)/);
-                if (projectSection) {
-                  const newProjectSection = `## 🌟 Featured Projects
-
-<div align="center">
-
-${projectCards}
-</div>
-
-`;
-                  readme = readme.replace(projectSection[0], newProjectSection);
+                // 替换项目占位符 - 修复YAML语法错误
+                const projectSectionRegex = /## 🌟 Featured Projects[\s\S]*?(?=##|$)/;
+                const projectMatch = readme.match(projectSectionRegex);
+                if (projectMatch) {
+                  const newProjectSection = `## 🌟 Featured Projects\n\n<div align="center">\n\n${projectCards}\n</div>\n\n`;
+                  readme = readme.replace(projectMatch[0], newProjectSection);
                 }
               }
               
@@ -128,6 +122,9 @@ ${projectCards}
   generate-snake:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
       - name: Generate github-contribution-grid-snake.svg
         uses: Platane/snk/svg-only@v3
         with:
