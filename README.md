@@ -1,19 +1,12 @@
 <div align="center">
   
-# 👋 Hello, I'm [Your Name]!
+# 👋 Hello, I'm nlyh!
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=Full+Stack+Developer;Open+Source+Enthusiast;Always+Learning+New+Things;Code+%7C+Create+%7C+Innovate" alt="Typing SVG" />
 
 </div>
 
-## 🚀 About Me
 
-- 🔭 I'm currently working on **[Current Project]**
-- 🌱 I'm currently learning **[Technologies you're learning]**
-- 👯 I'm looking to collaborate on **Open Source Projects**
-- 💬 Ask me about **[Your expertise areas]**
-- 📫 How to reach me: **[your.email@example.com]**
-- ⚡ Fun fact: **[Something interesting about you]**
 
 ## 📅 GitHub Journey
 
