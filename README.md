@@ -20,13 +20,13 @@
 <div align="center">
 
 ```
-🗓️ Joined GitHub: [GITHUB_JOIN_DATE]
-⭐ [YEARS_ON_GITHUB]+ years of coding journey
+🗓️ Joined GitHub: January 19, 2017
+⭐ 8+ years of coding journey
 📚 [TOTAL_REPOS]+ repositories created
 👥 [FOLLOWERS_COUNT] followers
 ```
 
-<img src="https://img.shields.io/badge/GitHub%20Since-[GITHUB_JOIN_DATE]-blue?style=for-the-badge&logo=github" alt="GitHub Since" />
+<img src="https://img.shields.io/badge/GitHub%20Since-January 19, 2017-blue?style=for-the-badge&logo=github" alt="GitHub Since" />
 
 </div>
 
