@@ -22,8 +22,8 @@
 ```
 🗓️ Joined GitHub: January 19, 2017
 ⭐ 8+ years of coding journey
-📚 [TOTAL_REPOS]+ repositories created
-👥 [FOLLOWERS_COUNT] followers
+📚 9+ repositories created
+👥 0 followers
 ```
 
 <img src="https://img.shields.io/badge/GitHub%20Since-January 19, 2017-blue?style=for-the-badge&logo=github" alt="GitHub Since" />
@@ -45,20 +45,20 @@
 
 <div align="center">
   
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=[YourUsername]&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true"/>
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=[YourUsername]&layout=compact&langs_count=8&theme=tokyonight&hide_border=true"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=nlyh&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=nlyh&layout=compact&langs_count=8&theme=tokyonight&hide_border=true"/>
 
 </div>
 
 <div align="center">
   
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=[YourUsername]&theme=tokyonight&hide_border=true)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=nlyh&theme=tokyonight&hide_border=true)
 
 </div>
 
 <div align="center">
 
-![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=[YourUsername]&theme=tokyo-night&hide_border=true)
+![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=nlyh&theme=tokyo-night&hide_border=true)
 
 </div>
 
@@ -66,7 +66,7 @@
 
 <div align="center">
   
-![trophy](https://github-profile-trophy.vercel.app/?username=[YourUsername]&theme=tokyonight&no-frame=true&no-bg=false&margin-w=4&column=7)
+![trophy](https://github-profile-trophy.vercel.app/?username=nlyh&theme=tokyonight&no-frame=true&no-bg=false&margin-w=4&column=7)
 
 </div>
 
@@ -74,9 +74,9 @@
 
 <div align="center">
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=[YourUsername]&show_icons=true&theme=tokyonight&count_private=true&include_all_commits=true&custom_title=GitHub%20Stats&hide_border=true)
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=nlyh&show_icons=true&theme=tokyonight&count_private=true&include_all_commits=true&custom_title=GitHub%20Stats&hide_border=true)
 
-![Contribution Graph](https://github-readme-stats.vercel.app/api/wakatime?username=[YourUsername]&theme=tokyonight&hide_border=true)
+![Contribution Graph](https://github-readme-stats.vercel.app/api/wakatime?username=nlyh&theme=tokyonight&hide_border=true)
 
 </div>
 
@@ -84,10 +84,10 @@
 
 <div align="center">
 
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=[YourUsername]&repo=[RepoName1]&theme=tokyonight&hide_border=true)](https://github.com/[YourUsername]/[RepoName1])
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=[YourUsername]&repo=[RepoName2]&theme=tokyonight&hide_border=true)](https://github.com/[YourUsername]/[RepoName2])
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=[YourUsername]&repo=[RepoName3]&theme=tokyonight&hide_border=true)](https://github.com/[YourUsername]/[RepoName3])
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=[YourUsername]&repo=[RepoName4]&theme=tokyonight&hide_border=true)](https://github.com/[YourUsername]/[RepoName4])
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=nlyh&repo=[RepoName1]&theme=tokyonight&hide_border=true)](https://github.com/nlyh/[RepoName1])
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=nlyh&repo=[RepoName2]&theme=tokyonight&hide_border=true)](https://github.com/nlyh/[RepoName2])
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=nlyh&repo=[RepoName3]&theme=tokyonight&hide_border=true)](https://github.com/nlyh/[RepoName3])
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=nlyh&repo=[RepoName4]&theme=tokyonight&hide_border=true)](https://github.com/nlyh/[RepoName4])
 
 </div>
 
@@ -95,7 +95,7 @@
 
 <div align="center">
 
-![Snake animation](https://github.com/[YourUsername]/[YourUsername]/blob/output/github-contribution-grid-snake.svg)
+![Snake animation](https://github.com/nlyh/nlyh/blob/output/github-contribution-grid-snake.svg)
 
 </div>
 
@@ -110,8 +110,8 @@
   
 ### 👀 Profile Views & Visitors
 
-![Profile Views](https://komarev.com/ghpvc/?username=[YourUsername]&color=blueviolet&style=flat-square&label=Profile+Views)
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=[YourUsername].[YourUsername])
+![Profile Views](https://komarev.com/ghpvc/?username=nlyh&color=blueviolet&style=flat-square&label=Profile+Views)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=nlyh.nlyh)
 
 ### ⭐ If you like my work, consider giving it a star!
 
