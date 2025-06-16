@@ -1,0 +1,53 @@
+name: Update Profile README
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # 每周更新一次
+  workflow_dispatch:  # 手动触发
+  push:
+    branches: [ main ]
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Update README
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            
+            // 获取用户信息
+            const { data: user } = await github.rest.users.getByUsername({
+              username: context.repo.owner
+            });
+            
+            const joinDate = new Date(user.created_at);
+            const formattedDate = joinDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+            
+            const yearsOnGitHub = new Date().getFullYear() - joinDate.getFullYear();
+            
+            // 读取README模板
+            let readme = fs.readFileSync('README.md', 'utf8');
+            
+            // 替换占位符
+            readme = readme.replace(/\[GITHUB_JOIN_DATE\]/g, formattedDate);
+            readme = readme.replace(/\[YEARS_ON_GITHUB\]/g, yearsOnGitHub);
+            
+            // 写回README
+            fs.writeFileSync('README.md', readme);
+            
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git diff --staged --quiet || git commit -m "Auto-update profile with latest GitHub data"
+          git push
