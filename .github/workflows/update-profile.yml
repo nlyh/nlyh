@@ -2,52 +2,144 @@ name: Update Profile README
 
 on:
   schedule:
-    - cron: '0 0 * * 0'  # 每周更新一次
-  workflow_dispatch:  # 手动触发
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
   push:
     branches: [ main ]
+
+permissions:
+  contents: write
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Update README
-        uses: actions/github-script@v6
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update README with GitHub Stats
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             
-            // 获取用户信息
-            const { data: user } = await github.rest.users.getByUsername({
-              username: context.repo.owner
-            });
-            
-            const joinDate = new Date(user.created_at);
-            const formattedDate = joinDate.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            });
-            
-            const yearsOnGitHub = new Date().getFullYear() - joinDate.getFullYear();
-            
-            // 读取README模板
-            let readme = fs.readFileSync('README.md', 'utf8');
-            
-            // 替换占位符
-            readme = readme.replace(/\[GITHUB_JOIN_DATE\]/g, formattedDate);
-            readme = readme.replace(/\[YEARS_ON_GITHUB\]/g, yearsOnGitHub);
-            
-            // 写回README
-            fs.writeFileSync('README.md', readme);
-            
-      - name: Commit changes
+            try {
+              // 获取用户信息
+              const { data: user } = await github.rest.users.getByUsername({
+                username: context.repo.owner
+              });
+              
+              // 获取仓库信息
+              const { data: repos } = await github.rest.repos.listForUser({
+                username: context.repo.owner,
+                type: 'all',
+                per_page: 100
+              });
+              
+              // 获取热门仓库（按星数排序）
+              const popularRepos = repos
+                .filter(repo => !repo.fork && repo.stargazers_count > 0)
+                .sort((a, b) => b.stargazers_count - a.stargazers_count)
+                .slice(0, 4);
+              
+              const joinDate = new Date(user.created_at);
+              const formattedDate = joinDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              });
+              
+              const yearsOnGitHub = new Date().getFullYear() - joinDate.getFullYear();
+              const totalRepos = user.public_repos;
+              const followers = user.followers;
+              const following = user.following;
+              
+              // 读取README模板
+              let readme = fs.readFileSync('README.md', 'utf8');
+              
+              // 替换基本信息
+              readme = readme.replace(/\[GITHUB_JOIN_DATE\]/g, formattedDate);
+              readme = readme.replace(/\[YEARS_ON_GITHUB\]/g, yearsOnGitHub);
+              readme = readme.replace(/\[TOTAL_REPOS\]/g, totalRepos);
+              readme = readme.replace(/\[FOLLOWERS_COUNT\]/g, followers);
+              readme = readme.replace(/\[FOLLOWING_COUNT\]/g, following);
+              readme = readme.replace(/\[USERNAME\]/g, context.repo.owner);
+              
+              // 替换用户名占位符
+              readme = readme.replace(/\[YourUsername\]/g, context.repo.owner);
+              
+              // 自动生成热门项目卡片
+              if (popularRepos.length > 0) {
+                let projectCards = '';
+                popularRepos.forEach(repo => {
+                  projectCards += `[![${repo.name}](https://github-readme-stats.vercel.app/api/pin/?username=${context.repo.owner}&repo=${repo.name}&theme=tokyonight&hide_border=true)](https://github.com/${context.repo.owner}/${repo.name})\n`;
+                });
+                
+                // 替换项目占位符
+                const projectSection = readme.match(/## 🌟 Featured Projects[\s\S]*?(?=##|$)/);
+                if (projectSection) {
+                  const newProjectSection = `## 🌟 Featured Projects
+
+<div align="center">
+
+${projectCards}
+</div>
+
+`;
+                  readme = readme.replace(projectSection[0], newProjectSection);
+                }
+              }
+              
+              // 写回README
+              fs.writeFileSync('README.md', readme);
+              
+              console.log('✅ README updated successfully');
+              console.log(`📅 Join Date: ${formattedDate}`);
+              console.log(`⭐ Years on GitHub: ${yearsOnGitHub}`);
+              console.log(`📚 Total Repos: ${totalRepos}`);
+              console.log(`👥 Followers: ${followers}`);
+              console.log(`🔗 Following: ${following}`);
+              
+            } catch (error) {
+              console.error('❌ Error updating README:', error);
+              throw error;
+            }
+
+      - name: Check for changes
+        id: verify-changed-files
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add README.md
-          git diff --staged --quiet || git commit -m "Auto-update profile with latest GitHub data"
+          git commit -m "📊 Auto-update profile stats [$(date +'%Y-%m-%d %H:%M:%S')]"
           git push
+
+  # 生成贡献蛇形图
+  generate-snake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate github-contribution-grid-snake.svg
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      - name: Push the content to the output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
