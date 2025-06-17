@@ -25,12 +25,6 @@
 ![Snake animation](https://github.com/nlyh/nlyh/blob/output/github-contribution-grid-snake.svg)
 
 </div>
-
-## 📊 Weekly Development Breakdown
-
-<!--START_SECTION:waka-->
-<!--END_SECTION:waka-->
-
 ---
 
 <div align="center">
