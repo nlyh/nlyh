@@ -56,7 +56,7 @@ jobs:
               const following = user.following;
               
               // 读取README模板
-              let readme = fs.readFileSync('README.md', 'utf8');
+              let readme = fs.readFileSync('README_template.md', 'utf8');
               
               // 替换基本信息
               readme = readme.replace(/\[GITHUB_JOIN_DATE\]/g, formattedDate);
