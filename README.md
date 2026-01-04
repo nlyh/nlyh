@@ -12,7 +12,7 @@
 
 ```
 🗓️ Joined GitHub: January 19, 2017
-⭐ 8+ years of coding journey
+⭐ 9+ years of coding journey
 📚 11+ repositories created
 👥 0 followers
 ```
